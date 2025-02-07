@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta tag -->
+        <meta charset="UTF-8">
+        <meta name="author" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="assets/img/favicons/favicon.png" />
+        <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons//apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png" />
+
+        <!-- Title -->
+        <title>Kero - Driver</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Data Table CSS -->
+        <link href="assets/css/datatables.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/responsive.css" rel="stylesheet">
+
+    </head>
+    <body class="dashboard">
+
+        <header class="px-3 px-md-5">
+            <nav class="d-flex justify-content-between align-items-center py-3 gap-5">
+                <div class="nav-logo d-flex align-items-center ">
+                    <img src="assets/img/kero-logo.png" class="nav-logo_img" alt="Pay Your Dues">
+                </div>
+                <div class="nav-social d-flex gap-3 align-items-center justify-content-md-between justify-content-end flex-grow-1">
+                    <div class="d-none d-md-flex">
+                        <div class="dt-search">
+                            <label for="dt-search-0">Search:</label>
+                            <input type="search" class="dt-input" ></div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href=""><img src="assets/img/svg/Bell.svg" class="border rounded-5 p-2 me-md-4"  alt="Kero"></a>
+                        <div class="d-none d-md-flex gap-2 align-items-center">
+                            <img src="assets/img/user.png" alt="Kero">
+                            <div class="header-profile">
+                                <p class="fs-5 fw-medium header-title">Kero Admin</p>
+                                <p class="fw-light header-subtitle">kero@gmail.com</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="d-flex justify-content-center align-items-center d-md-none toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive" >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+
+                </div>
+            </nav>
+        </header>
+
+        <section class="main-content flex-grow-1">
+            <div class="p-0 h-100 d-flex align-items-stretch">
+                
+                <div class="sidebar bg-white offcanvas-md offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+                    <div class="offcanvas-header d-flex d-md-none justify-content-between mb-4 align-items-center">
+                        <div class="d-md-none d-flex gap-2 align-items-center">
+                            <img src="assets/img/user.png" alt="Kero">
+                            <div class="header-profile">
+                                <p class="fs-5 fw-medium header-title">Kero Admin</p>
+                                <p class="fw-light header-subtitle">kero@gmail.com</p>
+
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+                      </div>
+                    
+                    <div class="top-sidebar">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="index.html" class="d-flex align-items-center gap-4">
+                                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 6.99952L11 1.73952C10.45 1.24756 9.7379 0.975586 8.99997 0.975586C8.26204 0.975586 7.54999 1.24756 6.99997 1.73952L0.999973 6.99952C0.682341 7.28359 0.428873 7.63207 0.256445 8.02176C0.0840165 8.41145 -0.00341463 8.8334 -2.72762e-05 9.25952V17.9995C-2.72762e-05 18.7952 0.316043 19.5582 0.878652 20.1208C1.44126 20.6834 2.20432 20.9995 2.99997 20.9995H15C15.7956 20.9995 16.5587 20.6834 17.1213 20.1208C17.6839 19.5582 18 18.7952 18 17.9995V9.24952C18.0019 8.82508 17.9138 8.40506 17.7414 8.0172C17.5691 7.62934 17.3163 7.28247 17 6.99952ZM11 18.9995H6.99997V13.9995C6.99997 13.7343 7.10533 13.4799 7.29287 13.2924C7.4804 13.1049 7.73476 12.9995 7.99997 12.9995H9.99997C10.2652 12.9995 10.5195 13.1049 10.7071 13.2924C10.8946 13.4799 11 13.7343 11 13.9995V18.9995ZM16 17.9995C16 18.2647 15.8946 18.5191 15.7071 18.7066C15.5195 18.8942 15.2652 18.9995 15 18.9995H13V13.9995C13 13.2039 12.6839 12.4408 12.1213 11.8782C11.5587 11.3156 10.7956 10.9995 9.99997 10.9995H7.99997C7.20432 10.9995 6.44126 11.3156 5.87865 11.8782C5.31604 12.4408 4.99997 13.2039 4.99997 13.9995V18.9995H2.99997C2.73476 18.9995 2.4804 18.8942 2.29287 18.7066C2.10533 18.5191 1.99997 18.2647 1.99997 17.9995V9.24952C2.00015 9.10753 2.03057 8.96721 2.08919 8.8379C2.14781 8.70858 2.2333 8.59323 2.33997 8.49952L8.33997 3.24952C8.52246 3.0892 8.75706 3.00078 8.99997 3.00078C9.24288 3.00078 9.47748 3.0892 9.65997 3.24952L15.66 8.49952C15.7666 8.59323 15.8521 8.70858 15.9108 8.8379C15.9694 8.96721 15.9998 9.10753 16 9.24952V17.9995Z"/>
+                                        <path d="M16 17.9995C16 18.2647 15.8946 18.5191 15.7071 18.7066C15.5195 18.8942 15.2652 18.9995 15 18.9995H13V13.9995C13 13.2039 12.6839 12.4408 12.1213 11.8782C11.5587 11.3156 10.7956 10.9995 9.99997 10.9995H7.99997C7.20432 10.9995 6.44126 11.3156 5.87865 11.8782C5.31604 12.4408 4.99997 13.2039 4.99997 13.9995V18.9995H2.99997C2.73476 18.9995 2.4804 18.8942 2.29287 18.7066C2.10533 18.5191 1.99997 18.2647 1.99997 17.9995V9.24952C2.00015 9.10753 2.03057 8.96721 2.08919 8.8379C2.14781 8.70858 2.2333 8.59323 2.33997 8.49952L8.33997 3.24952C8.52246 3.0892 8.75706 3.00078 8.99997 3.00078C9.24288 3.00078 9.47748 3.0892 9.65997 3.24952L15.66 8.49952C15.7666 8.59323 15.8521 8.70858 15.9108 8.8379C15.9694 8.96721 15.9998 9.10753 16 9.24952V17.9995Z"/>
+                                    </svg>        
+                                   <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="rides.html" class="d-flex align-items-center gap-4">
+                                    <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22.5 6.75H21.4875L18.8831 0.890625C18.7653 0.625525 18.5731 0.400293 18.3298 0.242217C18.0865 0.0841403 17.8026 3.47268e-06 17.5125 0H6.4875C6.19738 3.47268e-06 5.91349 0.0841403 5.67022 0.242217C5.42695 0.400293 5.23474 0.625525 5.11688 0.890625L2.5125 6.75H1.5C1.30109 6.75 1.11032 6.82902 0.96967 6.96967C0.829018 7.11032 0.75 7.30109 0.75 7.5C0.75 7.69891 0.829018 7.88968 0.96967 8.03033C1.11032 8.17098 1.30109 8.25 1.5 8.25H2.25V15.75C2.25 16.1478 2.40804 16.5294 2.68934 16.8107C2.97064 17.092 3.35218 17.25 3.75 17.25H6C6.39782 17.25 6.77936 17.092 7.06066 16.8107C7.34196 16.5294 7.5 16.1478 7.5 15.75V15H16.5V15.75C16.5 16.1478 16.658 16.5294 16.9393 16.8107C17.2206 17.092 17.6022 17.25 18 17.25H20.25C20.6478 17.25 21.0294 17.092 21.3107 16.8107C21.592 16.5294 21.75 16.1478 21.75 15.75V8.25H22.5C22.6989 8.25 22.8897 8.17098 23.0303 8.03033C23.171 7.88968 23.25 7.69891 23.25 7.5C23.25 7.30109 23.171 7.11032 23.0303 6.96967C22.8897 6.82902 22.6989 6.75 22.5 6.75ZM4.15406 6.75L6.4875 1.5H17.5125L19.8459 6.75H4.15406Z"/>
+                                    </svg>        
+                                   <p>Rides</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="driver.html" class="d-flex align-items-center gap-4 active">
+                                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7473 7.41498 18.7192 4.93661 16.8913 3.10872C15.0634 1.28084 12.585 0.25273 10 0.25ZM2.65282 13.75H6.47969L8.07344 18.0231C6.91579 17.7425 5.83227 17.2155 4.89681 16.4781C3.96134 15.7407 3.19594 14.8101 2.65282 13.75ZM10 12.625C9.70333 12.625 9.41332 12.537 9.16665 12.3722C8.91998 12.2074 8.72772 11.9731 8.61419 11.699C8.50065 11.4249 8.47095 11.1233 8.52883 10.8324C8.5867 10.5414 8.72957 10.2741 8.93934 10.0643C9.14912 9.85456 9.4164 9.7117 9.70737 9.65382C9.99834 9.59594 10.2999 9.62565 10.574 9.73918C10.8481 9.85271 11.0824 10.045 11.2472 10.2916C11.412 10.5383 11.5 10.8283 11.5 11.125C11.5 11.5228 11.342 11.9044 11.0607 12.1857C10.7794 12.467 10.3978 12.625 10 12.625ZM11.9181 18.0241L13.5203 13.75H17.3472C16.8033 14.8113 16.0367 15.7426 15.0997 16.4803C14.1627 17.2179 13.0774 17.7445 11.9181 18.0241ZM10 7C6.97824 7.00366 4.05543 8.07746 1.75 10.0309V10C1.75 7.81196 2.6192 5.71354 4.16637 4.16637C5.71355 2.61919 7.81197 1.75 10 1.75C12.188 1.75 14.2865 2.61919 15.8336 4.16637C17.3808 5.71354 18.25 7.81196 18.25 10V10.0309C15.9446 8.07746 13.0218 7.00366 10 7Z"/>
+                                    </svg>        
+                                   <p>Driver</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="riders.html" class="d-flex align-items-center gap-4">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.125 9.25C14.125 10.0658 13.8831 10.8634 13.4298 11.5417C12.9766 12.2201 12.3323 12.7488 11.5786 13.061C10.8248 13.3732 9.99543 13.4549 9.19526 13.2957C8.39508 13.1366 7.66008 12.7437 7.08319 12.1668C6.5063 11.5899 6.11343 10.8549 5.95427 10.0547C5.7951 9.25458 5.87679 8.42518 6.189 7.67143C6.50121 6.91769 7.02992 6.27345 7.70828 5.82019C8.38663 5.36693 9.18416 5.125 10 5.125C11.0936 5.12624 12.1421 5.56124 12.9154 6.33455C13.6888 7.10787 14.1238 8.15636 14.125 9.25ZM19.75 10C19.75 11.9284 19.1782 13.8134 18.1068 15.4168C17.0355 17.0202 15.5127 18.2699 13.7312 19.0078C11.9496 19.7458 9.98919 19.9389 8.09787 19.5627C6.20656 19.1865 4.46928 18.2579 3.10571 16.8943C1.74215 15.5307 0.813554 13.7934 0.437348 11.9021C0.061142 10.0108 0.254225 8.05042 0.992179 6.26884C1.73013 4.48726 2.97982 2.96451 4.58319 1.89317C6.18657 0.821828 8.07164 0.25 10 0.25C12.585 0.25273 15.0634 1.28084 16.8913 3.10872C18.7192 4.93661 19.7473 7.41498 19.75 10ZM18.25 10C18.2488 8.88956 18.0237 7.79077 17.5881 6.76934C17.1525 5.7479 16.5154 4.82481 15.7148 4.05525C14.9143 3.2857 13.9668 2.68549 12.929 2.29053C11.8911 1.89556 10.7843 1.71395 9.67469 1.75656C5.25907 1.92719 1.73782 5.605 1.75 10.0234C1.75424 12.0349 2.49609 13.9749 3.835 15.4759C4.38028 14.6851 5.07292 14.0068 5.875 13.4781C5.94339 13.433 6.02469 13.4114 6.10646 13.4169C6.18824 13.4223 6.26599 13.4543 6.32782 13.5081C7.34705 14.3897 8.6496 14.8749 9.99719 14.8749C11.3448 14.8749 12.6473 14.3897 13.6666 13.5081C13.7284 13.4543 13.8061 13.4223 13.8879 13.4169C13.9697 13.4114 14.051 13.433 14.1194 13.4781C14.9225 14.0065 15.6161 14.6848 16.1622 15.4759C17.5077 13.9694 18.251 12.0199 18.25 10Z"/>
+                                    </svg>        
+                                   <p>Riders</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="setting.html" class="d-flex align-items-center gap-4">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 6.12499C10.0358 6.12499 9.09329 6.41091 8.2916 6.94658C7.48991 7.48225 6.86507 8.24362 6.49609 9.13441C6.12712 10.0252 6.03058 11.0054 6.21868 11.9511C6.40678 12.8967 6.87108 13.7654 7.55286 14.4471C8.23464 15.1289 9.10328 15.5932 10.0489 15.7813C10.9946 15.9694 11.9748 15.8729 12.8656 15.5039C13.7564 15.1349 14.5177 14.5101 15.0534 13.7084C15.5891 12.9067 15.875 11.9642 15.875 11C15.8735 9.70752 15.3594 8.46841 14.4455 7.55449C13.5316 6.64057 12.2925 6.12648 11 6.12499ZM11 13.625C10.4808 13.625 9.97331 13.471 9.54164 13.1826C9.10996 12.8942 8.7735 12.4842 8.57482 12.0045C8.37614 11.5249 8.32416 10.9971 8.42545 10.4879C8.52673 9.97868 8.77674 9.51095 9.14385 9.14384C9.51096 8.77672 9.97869 8.52672 10.4879 8.42543C10.9971 8.32414 11.5249 8.37613 12.0046 8.57481C12.4842 8.77349 12.8942 9.10994 13.1826 9.54162C13.4711 9.9733 13.625 10.4808 13.625 11C13.625 11.6962 13.3484 12.3639 12.8562 12.8561C12.3639 13.3484 11.6962 13.625 11 13.625ZM21.6744 8.9778C21.6427 8.81934 21.5772 8.66958 21.4824 8.5387C21.3876 8.40783 21.2657 8.29891 21.125 8.21937L18.5197 6.73343L18.5094 3.79812C18.5088 3.63526 18.4729 3.47446 18.4041 3.32684C18.3353 3.17922 18.2353 3.0483 18.1109 2.94312C17.061 2.05481 15.8522 1.37371 14.5484 0.935929C14.3997 0.885764 14.2422 0.867272 14.0859 0.881642C13.9296 0.896011 13.778 0.942925 13.6409 1.01937L11 2.49405L8.35907 1.01843C8.22182 0.941567 8.06997 0.894345 7.91333 0.879812C7.75669 0.865278 7.59875 0.883757 7.44969 0.934054C6.14559 1.37366 4.93672 2.05667 3.88719 2.94687C3.76326 3.05193 3.66356 3.18259 3.59494 3.32986C3.52632 3.47713 3.49042 3.63752 3.48969 3.79999L3.47657 6.73812L0.875007 8.2203C0.734298 8.30015 0.612465 8.4094 0.517819 8.54061C0.423172 8.67182 0.357939 8.8219 0.326569 8.98062C0.0617165 10.3148 0.0617165 11.688 0.326569 13.0222C0.358188 13.1806 0.423536 13.3303 0.518171 13.4611C0.612806 13.592 0.734509 13.701 0.875007 13.7806L3.48313 15.2666L3.49344 18.2019C3.49401 18.3647 3.52993 18.5255 3.59872 18.6731C3.66752 18.8208 3.76754 18.9517 3.89188 19.0569C4.94178 19.9452 6.15065 20.6263 7.45438 21.0641C7.6031 21.1142 7.76067 21.1327 7.91696 21.1183C8.07325 21.104 8.2248 21.0571 8.36188 20.9806L11 19.5059L13.6381 20.9816C13.7754 21.0584 13.9272 21.1056 14.0839 21.1202C14.2405 21.1347 14.3985 21.1162 14.5475 21.0659C15.8516 20.6263 17.0605 19.9433 18.11 19.0531C18.2339 18.9481 18.3336 18.8174 18.4023 18.6701C18.4709 18.5229 18.5068 18.3625 18.5075 18.2L18.5206 15.2619L21.1278 13.7797C21.2685 13.6998 21.3904 13.5906 21.485 13.4594C21.5797 13.3282 21.6449 13.1781 21.6763 13.0194C21.9405 11.6851 21.9399 10.3119 21.6744 8.9778ZM19.5528 12.0884L17.0328 13.5209C16.8538 13.6224 16.7062 13.7713 16.6063 13.9512C16.5556 14.045 16.5022 14.1322 16.4469 14.2212C16.3358 14.3986 16.2764 14.6035 16.2753 14.8128L16.2622 17.6562C15.6557 18.1126 14.9915 18.4868 14.2869 18.7691L11.7416 17.345C11.5737 17.251 11.3846 17.2016 11.1922 17.2016H11.165C11.0581 17.2016 10.9494 17.2016 10.8425 17.2016C10.6415 17.1968 10.4428 17.2457 10.2669 17.3431L7.71876 18.7644C7.01297 18.4835 6.34724 18.1109 5.73876 17.6562L5.72844 14.8212C5.72758 14.6116 5.66815 14.4064 5.55688 14.2287C5.50251 14.1406 5.44813 14.0497 5.39751 13.9587C5.2975 13.7799 5.15026 13.632 4.97188 13.5312L2.45001 12.0903C2.35204 11.3674 2.35204 10.6345 2.45001 9.91155L4.97001 8.47905C5.14875 8.37758 5.29627 8.22908 5.39657 8.04968C5.44719 7.95593 5.50063 7.8678 5.55594 7.77874C5.66705 7.60135 5.72646 7.39649 5.72751 7.18718L5.73782 4.34374C6.34453 3.88866 7.00872 3.51574 7.71313 3.23468L10.2584 4.65874C10.4343 4.75738 10.6335 4.80662 10.835 4.80124C10.9419 4.80124 11.0506 4.80124 11.1575 4.80124C11.3585 4.806 11.5572 4.75714 11.7331 4.65968L14.2813 3.23562C14.987 3.51645 15.6528 3.88903 16.2613 4.34374L16.2716 7.17874C16.2724 7.38837 16.3319 7.59358 16.4431 7.77124C16.4975 7.85937 16.5519 7.9503 16.6025 8.04124C16.7025 8.22007 16.8498 8.36795 17.0281 8.46874L19.55 9.90593C19.6493 10.63 19.6502 11.3641 19.5528 12.0884Z"/>
+                                    </svg>        
+                                   <p>Settings</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bottom-sidebar mt-4">
+                        <ul class="list-unstyled mb-0">
+                            
+                            <li>
+                                <a href="#logout.html" class="d-flex align-items-center gap-4">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 6.12499C10.0358 6.12499 9.09329 6.41091 8.2916 6.94658C7.48991 7.48225 6.86507 8.24362 6.49609 9.13441C6.12712 10.0252 6.03058 11.0054 6.21868 11.9511C6.40678 12.8967 6.87108 13.7654 7.55286 14.4471C8.23464 15.1289 9.10328 15.5932 10.0489 15.7813C10.9946 15.9694 11.9748 15.8729 12.8656 15.5039C13.7564 15.1349 14.5177 14.5101 15.0534 13.7084C15.5891 12.9067 15.875 11.9642 15.875 11C15.8735 9.70752 15.3594 8.46841 14.4455 7.55449C13.5316 6.64057 12.2925 6.12648 11 6.12499ZM11 13.625C10.4808 13.625 9.97331 13.471 9.54164 13.1826C9.10996 12.8942 8.7735 12.4842 8.57482 12.0045C8.37614 11.5249 8.32416 10.9971 8.42545 10.4879C8.52673 9.97868 8.77674 9.51095 9.14385 9.14384C9.51096 8.77672 9.97869 8.52672 10.4879 8.42543C10.9971 8.32414 11.5249 8.37613 12.0046 8.57481C12.4842 8.77349 12.8942 9.10994 13.1826 9.54162C13.4711 9.9733 13.625 10.4808 13.625 11C13.625 11.6962 13.3484 12.3639 12.8562 12.8561C12.3639 13.3484 11.6962 13.625 11 13.625ZM21.6744 8.9778C21.6427 8.81934 21.5772 8.66958 21.4824 8.5387C21.3876 8.40783 21.2657 8.29891 21.125 8.21937L18.5197 6.73343L18.5094 3.79812C18.5088 3.63526 18.4729 3.47446 18.4041 3.32684C18.3353 3.17922 18.2353 3.0483 18.1109 2.94312C17.061 2.05481 15.8522 1.37371 14.5484 0.935929C14.3997 0.885764 14.2422 0.867272 14.0859 0.881642C13.9296 0.896011 13.778 0.942925 13.6409 1.01937L11 2.49405L8.35907 1.01843C8.22182 0.941567 8.06997 0.894345 7.91333 0.879812C7.75669 0.865278 7.59875 0.883757 7.44969 0.934054C6.14559 1.37366 4.93672 2.05667 3.88719 2.94687C3.76326 3.05193 3.66356 3.18259 3.59494 3.32986C3.52632 3.47713 3.49042 3.63752 3.48969 3.79999L3.47657 6.73812L0.875007 8.2203C0.734298 8.30015 0.612465 8.4094 0.517819 8.54061C0.423172 8.67182 0.357939 8.8219 0.326569 8.98062C0.0617165 10.3148 0.0617165 11.688 0.326569 13.0222C0.358188 13.1806 0.423536 13.3303 0.518171 13.4611C0.612806 13.592 0.734509 13.701 0.875007 13.7806L3.48313 15.2666L3.49344 18.2019C3.49401 18.3647 3.52993 18.5255 3.59872 18.6731C3.66752 18.8208 3.76754 18.9517 3.89188 19.0569C4.94178 19.9452 6.15065 20.6263 7.45438 21.0641C7.6031 21.1142 7.76067 21.1327 7.91696 21.1183C8.07325 21.104 8.2248 21.0571 8.36188 20.9806L11 19.5059L13.6381 20.9816C13.7754 21.0584 13.9272 21.1056 14.0839 21.1202C14.2405 21.1347 14.3985 21.1162 14.5475 21.0659C15.8516 20.6263 17.0605 19.9433 18.11 19.0531C18.2339 18.9481 18.3336 18.8174 18.4023 18.6701C18.4709 18.5229 18.5068 18.3625 18.5075 18.2L18.5206 15.2619L21.1278 13.7797C21.2685 13.6998 21.3904 13.5906 21.485 13.4594C21.5797 13.3282 21.6449 13.1781 21.6763 13.0194C21.9405 11.6851 21.9399 10.3119 21.6744 8.9778ZM19.5528 12.0884L17.0328 13.5209C16.8538 13.6224 16.7062 13.7713 16.6063 13.9512C16.5556 14.045 16.5022 14.1322 16.4469 14.2212C16.3358 14.3986 16.2764 14.6035 16.2753 14.8128L16.2622 17.6562C15.6557 18.1126 14.9915 18.4868 14.2869 18.7691L11.7416 17.345C11.5737 17.251 11.3846 17.2016 11.1922 17.2016H11.165C11.0581 17.2016 10.9494 17.2016 10.8425 17.2016C10.6415 17.1968 10.4428 17.2457 10.2669 17.3431L7.71876 18.7644C7.01297 18.4835 6.34724 18.1109 5.73876 17.6562L5.72844 14.8212C5.72758 14.6116 5.66815 14.4064 5.55688 14.2287C5.50251 14.1406 5.44813 14.0497 5.39751 13.9587C5.2975 13.7799 5.15026 13.632 4.97188 13.5312L2.45001 12.0903C2.35204 11.3674 2.35204 10.6345 2.45001 9.91155L4.97001 8.47905C5.14875 8.37758 5.29627 8.22908 5.39657 8.04968C5.44719 7.95593 5.50063 7.8678 5.55594 7.77874C5.66705 7.60135 5.72646 7.39649 5.72751 7.18718L5.73782 4.34374C6.34453 3.88866 7.00872 3.51574 7.71313 3.23468L10.2584 4.65874C10.4343 4.75738 10.6335 4.80662 10.835 4.80124C10.9419 4.80124 11.0506 4.80124 11.1575 4.80124C11.3585 4.806 11.5572 4.75714 11.7331 4.65968L14.2813 3.23562C14.987 3.51645 15.6528 3.88903 16.2613 4.34374L16.2716 7.17874C16.2724 7.38837 16.3319 7.59358 16.4431 7.77124C16.4975 7.85937 16.5519 7.9503 16.6025 8.04124C16.7025 8.22007 16.8498 8.36795 17.0281 8.46874L19.55 9.90593C19.6493 10.63 19.6502 11.3641 19.5528 12.0884Z"/>
+                                    </svg>        
+                                   <p>Logout</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard-content p-3 p-md-4">
+                    <p class="headline-small pt-4 mb-4">Driver</p>
+                    
+                    <p class="d-inline-flex gap-3 mb-3 mt-1">
+                        <button class="btn-one" data-bs-toggle="collapse" data-bs-target="#approvedSection" aria-expanded="true" aria-controls="approvedSection">
+                          Approved
+                        </button>
+                        <button class="btn-two" data-bs-toggle="collapse" data-bs-target="#unapprovedSection" aria-expanded="false" aria-controls="unapprovedSection">
+                          Unapproved
+                        </button>
+                    </p>
+  
+                    <div class="rounded-col mt-4 collapse multi-collapse show" id="approvedSection">
+
+                    </div> 
+                    
+                    <div class="rounded-col mt-4 collapse multi-collapse" id="unapprovedSection">
+                       
+                    </div> 
+
+                    
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="viewDriver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewDriverLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content p-3 py-5 p-md-5">
+                            
+                    <div class="d-flex justify-content-between">
+                        <p class="title-medium">Ride Details</p>
+                        <button type="button" class="btn-close mb-3 border rounded-md p-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body mx-1 mx-md-3">
+                        
+
+                    </div>
+                            
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="viewUnApprovedDriver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewUnApprovedDriverLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content p-3 py-5 p-md-5">
+                            
+                    <div class="d-flex justify-content-between">
+                        <p class="title-medium">Ride Details</p>
+                        <button type="button" class="btn-close mb-3 border rounded-md p-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body mx-1 mx-md-3">
+                        
+
+                        <!-- <div class="stack gap-5 text-center mt-5">
+                            <button class="btn-one px-5 me-2">Approved</button>
+                            <button class="btn-two px-5 ms-2">Reject</button>
+                        </div> -->
+
+                    </div>
+                            
+                </div>
+            </div>
+        </div>
+
+        <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+            <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Notification</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body"></div>
+            </div>
+        </div>
+        
+        
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+        <!-- Chart JS -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Data Table JS-->
+        <script src="assets/js/datatables.min.js"></script>
+        
+        <!-- Custom JS -->
+        <script src="assets/js/main.js"></script>
+        <script>
+            function showToast(message) {
+                const toast = new bootstrap.Toast(document.getElementById('toast'));
+                $('.toast-body').text(message);
+                toast.show();
+            }
+
+            showToast("Loading data, please wait...");
+            
+            const approvedButton = document.querySelector('button[data-bs-target="#approvedSection"]');
+            const unapprovedButton = document.querySelector('button[data-bs-target="#unapprovedSection"]');
+  
+            const approvedSection = document.getElementById('approvedSection');
+            const unapprovedSection = document.getElementById('unapprovedSection');
+  
+            // Function to toggle collapsibles
+            const toggleSections = (showApproved) => {
+              if (showApproved) {
+                // Show the approved, hide the unapproved
+                approvedSection.classList.add('show');
+                unapprovedSection.classList.remove('show');
+                approvedButton.classList.remove('btn-two');
+                approvedButton.classList.add('btn-one');
+                unapprovedButton.classList.add('btn-two');
+              } else {
+                // Show the unapproved, hide the approved
+                unapprovedSection.classList.add('show');
+                approvedSection.classList.remove('show');
+                unapprovedButton.classList.remove('btn-two');
+                unapprovedButton.classList.add('btn-one');
+                approvedButton.classList.add('btn-two');
+              }
+            };
+  
+            // Event listeners for button clicks
+            approvedButton.addEventListener('click', () => {
+              if (!approvedSection.classList.contains('show')) {
+                toggleSections(true);
+              }
+            });
+  
+            unapprovedButton.addEventListener('click', () => {
+              if (!unapprovedSection.classList.contains('show')) {
+                toggleSections(false);
+              }
+            });
+
+            function showToast(message) {
+                const toastBody = document.querySelector(".toast-body");
+                const toast = document.querySelector(".toast");
+                toastBody.textContent = message;
+
+                const toastInstance = bootstrap.Toast.getOrCreateInstance(toast);
+                toastInstance.show();
+            }
+
+            
+            $(document).ready(function() {
+                const apiUrl = 'https://backend-lnvj.onrender.com/api/admin/drivers';
+                let driversData = [];
+                let approvedTable, unapprovedTable;
+
+                // Get auth token from cookies
+                function getAuthToken() {
+                    const token = document.cookie
+                        .split("; ")
+                        .find((row) => row.startsWith("token="))
+                        ?.split("=")[1];
+
+                    if (!token) {
+                        showToast("Authorization token not found in cookies.");
+                        window.location.href = '/login';
+                        return null;
+                    }
+                    return token;
+                }
+
+                // Load initial data
+                loadDrivers();
+
+                async function loadDrivers() {
+                    const token = getAuthToken();
+                    if (!token) return;
+
+                    try {
+                        $('#approvedSection').html('<p>Loading approved drivers...</p>');
+                        $('#unapprovedSection').html('<p>Loading unapproved drivers...</p>');
+
+                        const response = await $.ajax({
+                            url: apiUrl,
+                            method: 'GET',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+
+                        if (response.success) {
+                            driversData = response.data.drivers;
+                            populateTables();
+                            updateDriverCounts();
+                            showToast(response.message);
+                        }
+                    } catch (error) {
+                        handleApiError(error);
+                    }
+                }
+
+                function updateDriverCounts() {
+                    const approvedCount = driversData.filter(driver => driver.kycVerified).length;
+                    const unapprovedCount = driversData.filter(driver => !driver.kycVerified).length;
+
+                    // Update the Approved button text
+                    const approvedButton = document.querySelector('button[data-bs-target="#approvedSection"]');
+                    if (approvedButton) {
+                        approvedButton.textContent = `Approved (${approvedCount})`;
+                    }
+
+                    // Update the Unapproved button text
+                    const unapprovedButton = document.querySelector('button[data-bs-target="#unapprovedSection"]');
+                    if (unapprovedButton) {
+                        unapprovedButton.textContent = `Unapproved (${unapprovedCount})`;
+                    }
+                }
+
+                function populateTables() {
+                    if ($.fn.DataTable.isDataTable('#approvedDriver')) approvedTable.destroy();
+                    if ($.fn.DataTable.isDataTable('#unApprovedDriver')) unapprovedTable.destroy();
+
+                    const approvedDrivers = driversData.filter(driver => driver.kycVerified);
+                    const unapprovedDrivers = driversData.filter(driver => !driver.kycVerified);
+
+                    // Approved Drivers Table
+                    const approvedTableHTML = `
+                        <div class="table-responsive col">
+                        <table class="table table-hover" id="approvedDriver">
+                            <thead>
+                                <tr class="table-light text-center">
+                                    <th>Vehicle No</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Driver Name</th>
+                                    <th>Email Address</th>
+                                    <th>Phone No</th>
+                                    <th>No of Trip</th>
+                                    <th>Rating</th>
+                                    <th>Earning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${approvedDrivers.map(driver => `
+                                    <tr data-driver-id="${driver._id}" data-bs-toggle="modal" data-bs-target="#viewDriver">
+                                        <td>${driver.vehicle?.licensePlate  || 'N/A'}</td>
+                                        <td>${driver.vehicle?.model || 'N/A'}</td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <img src="assets/img/user.png" class="rounded-5" height="24" width="24" alt="">
+                                                ${driver.firstname} ${driver.lastname}
+                                            </div>
+                                        </td>
+                                        <td>${driver.email}</td>
+                                        <td>${driver.phone}</td>
+                                        <td>${driver.tripsCount || 0}</td>
+                                        <td><img src="assets/img/svg/Star 4.svg" alt="">${driver.rating || 0}</td>
+                                        <td>₦${driver.earnings?.toFixed(2) || '0.00'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        </div>`;
+
+                    // Unapproved Drivers Table
+                    const unapprovedTableHTML = `
+                        <div class="table-responsive col">
+                        <table class="table table-hover" id="unApprovedDriver">
+                            <thead>
+                                <tr class="table-light text-center">
+                                    <th>Vehicle No</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Driver Name</th>
+                                    <th>Email Address</th>
+                                    <th>Phone No</th>
+                                    <th>Vehicle Inspection</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${unapprovedDrivers.map(driver => `
+                                    <tr data-driver-id="${driver._id}" data-bs-toggle="modal" data-bs-target="#viewUnApprovedDriver">
+                                        <td>${driver.vehicle?.licensePlate  || 'N/A'}</td>
+                                        <td>${driver.vehicle?.model || 'N/A'}</td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <img src="assets/img/user.png" class="rounded-5" height="24" width="24" alt="">
+                                                ${driver.firstname} ${driver.lastname}
+                                            </div>
+                                        </td>
+                                        <td>${driver.email}</td>
+                                        <td>${driver.phone}</td>
+                                        <td><span class="${driver.kycVerified ? 'verified' : 'pending'}">${driver.kycVerified ? 'Verified' : 'Pending'}</span></td>
+                                        <td><span class="pending">Pending</span></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        </div>`;
+
+                    $('#approvedSection').html(approvedTableHTML);
+                    $('#unapprovedSection').html(unapprovedTableHTML);
+
+                    approvedTable = $('#approvedDriver').DataTable();
+                    unapprovedTable = $('#unApprovedDriver').DataTable();
+
+                    $('#approvedDriver tbody').on('click', 'tr[data-driver-id]', function() {
+                        const driverId = $(this).data('driver-id');
+                        const driver = driversData.find(d => d._id === driverId);
+                        populateModal(driver);
+                    });
+
+                    // Use event delegation for unapproved driver rows
+                    $('#unApprovedDriver tbody').on('click', 'tr[data-driver-id]', function() {
+                        const driverId = $(this).data('driver-id');
+                        const driver = driversData.find(d => d._id === driverId);
+                        populateModal(driver);
+                    });
+                }
+
+                function populateModal(driver) {
+                    if (!driver) return;
+
+                    const modalContent = `
+                        <div class="modal-text-2 text-center">
+                            <div class="modal-details-box">
+                                <p class="label-medium">Vehicle No</p>
+                                <p class="title-medium text-end">${driver.vehicle?.licensePlate  || 'N/A'}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Vehicle Type</p>
+                                <p class="title-medium text-end">${driver.vehicle?.model || 'N/A'} ${driver.vehicle?.year || ''}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Driver Name</p>
+                                <p class="title-medium text-end">
+                                    <img src="assets/img/user.png" class="rounded-5" height="20" width="20" alt="">
+                                    ${driver.firstname || ''} ${driver.lastname || ''}
+                                </p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Email Address</p>
+                                <p class="title-medium">${driver.email || 'N/A'}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Phone Number</p>
+                                <p class="title-medium">${driver.phone || 'N/A'}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">No of Trip</p>
+                                <p class="title-medium">${driver.tripsCount || 0}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Ratings</p>
+                                <p class="title-medium text-end">
+                                    <img src="assets/img/svg/Star 4.svg" alt="">
+                                    ${driver.rating || 0}
+                                </p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Earning</p>
+                                <p class="title-medium text-end">₦${driver.earnings?.toFixed(2) || '0.00'}</p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Driver's License</p>
+                                <p class="title-medium text-end viewImage">
+                                    ${driver.vehicle?.driverLicense ? 
+                                        `<a href="${driver.vehicle.driverLicense}" target="_blank">View Image</a>` : 
+                                        'N/A'}
+                                </p>
+                            </div>
+                            <div class="modal-details-box">
+                                <p class="label-medium">Hackney Permit</p>
+                                <p class="title-medium text-end viewImage">
+                                    ${driver.vehicle?.hackneyPermit ? 
+                                        `<a href="${driver.vehicle.hackneyPermit}" target="_blank">View Image</a>` : 
+                                        'N/A'}
+                                </p>
+                            </div>
+                        </div>`;
+
+                    if (driver.kycVerified) {
+                        $('#viewDriver .modal-body').html(modalContent);
+                    } else {
+                        $('#viewUnApprovedDriver .modal-body').html(`
+                            ${modalContent}
+                            <div class="stack gap-5 text-center mt-5">
+                                <button class="btn-one px-5 me-2" onclick="verifyDriver('${driver._id}', 'approved')">Approve</button>
+                                <button class="btn-two px-5 ms-2" onclick="verifyDriver('${driver._id}', 'rejected')">Reject</button>
+                            </div>
+                        `);
+                    }
+                }
+
+                window.verifyDriver = async function(driverId, status) {
+                    const token = getAuthToken();
+                    if (!token) return;
+
+                    const button = event.target;
+
+                    try {
+                        button.disabled = true;
+                        button.innerHTML = `
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        `;
+
+                        const response = await $.ajax({
+                            url: `https://backend-lnvj.onrender.com/api/admin/drivers/verify/${driverId}`,
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                                'Content-Type': 'application/json'
+                            },
+                            data: JSON.stringify({ status })
+                        });
+
+                        if (response.success) {
+                            showToast(`Driver ${status} successfully`);
+                            loadDrivers();
+                            $('#viewUnApprovedDriver').modal('hide');
+                        }
+                    } catch (error) {
+                        handleApiError(error);
+                    } finally {
+                        // Re-enable button and restore original text
+                        button.disabled = false;
+                        button.innerHTML = status === 'approved' ? 'Approve' : 'Reject';
+                    }
+                }
+
+                function handleApiError(error) {
+                    const errorMessage = error.responseJSON?.message || 'Server error';
+                    if (error.status === 401) {
+                        showToast('Session expired. Please login again.');
+                        window.location.href = '/login';
+                    } else {
+                        showToast(`Error: ${errorMessage}`);
+                    }
+                }
+
+            });
+
+        </script>
+          
+        
+    </body>
+</html>

@@ -1,0 +1,71 @@
+
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) { 
+
+
+}
+
+@media (max-width: 767.98px) {
+    .nav-logo_img {
+        height: 25px !important;
+        width: auto;
+    }
+
+
+
+    
+
+    
+
+}
+
+
+/* Small devices (landscape phones, between 576px and 767.98px) */
+@media (min-width: 576.2px) and (max-width: 767.98px) {  
+    
+
+      
+}
+
+@media (min-width: 768px) {
+    section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    
+}
+
+@media (max-width: 991.98px) {
+
+
+
+    
+}
+
+/* Medium devices (tablets, between 768px and 991.98px) */
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .hero {
+        min-height: 50vh !important;
+    }
+
+    .hero.one {
+        min-height: 70vh !important;
+    }
+
+    .display-4 {
+        font-size: calc(1.375rem + 2.7vw);
+    }
+
+    .fs-1 {
+        font-size: calc(1.275rem + 1.5vw) !important;
+    }
+}
+
+/* Large  devices (desktop, 992px and up) */
+@media (min-width: 992px) { 
+    
+}
+
